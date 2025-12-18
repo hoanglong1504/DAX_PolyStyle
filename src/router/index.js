@@ -189,7 +189,7 @@ const router = createRouter({
           component: NewsPageView,
         },
         {
-          path: "ProductDetailPageView",
+          path: "ProductDetailPageView/:id",
           name: "ProductDetailPageViews",
           component: ProductDetailPageView,
         },

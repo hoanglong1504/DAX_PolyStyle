@@ -20,6 +20,7 @@
         v-for="product in paginatedProducts" 
         :key="product.id" 
         class="product-card"
+        @click="goToDetail(product.id)"
       >
         <div class="card-image">
           <img :src="product.image" :alt="product.name" />
@@ -80,9 +81,19 @@
 
 <script setup>
 import { ref, computed, onMounted } from 'vue';
+import { useRouter } from 'vue-router'; 
+const router = useRouter(); 
 
-// --- 1. DATA GIẢ LẬP ---
+const goToDetail = (id) => { 
+  router.push({
+    name: "ProductDetailPageViews",
+    params: { id }
+  });
+};
+
 const allProducts = ref([]);
+
+
 
 // Hàm tạo dữ liệu giả (40 sản phẩm)
 const generateData = () => {
